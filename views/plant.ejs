@@ -18,13 +18,13 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
 
               <%if (status == 'loggedIn'){%>
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/animal">Animals Diseases & Symptoms</a></li>
                 <li class="nav-item"><a class="nav-link" href="/plant">Plants Disease & Symptoms</a></li>
-                <li class="nav-item"><a class="nav-link" href="/profile">Farmer Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
               <%}else{%>
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -286,7 +286,7 @@
           for(let i = 0; i < symptoms.length; i++){
             document.write(
                 '<div class="card mb-5" style="width: 100vw; heigt: 100vh; font-family: "Roboto", sans-serif;">' +
-                    '<img src="'+ symptoms[i].possibleDiseases.diseases[0].image+'"class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:100vw; height:50vh;">' +
+                    '<img src="'+ symptoms[i].possibleDiseases.diseases[0].image+'"class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:60%; margin-left:auto; margin-right:auto; height:50vh;">' +
                     '<div class="card-body">' +
                       '<h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: '+symptoms[i].possibleDiseases.diseases[0].name+'</h4>' +
                       '<h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> '+symptoms[i].name+'</h6>' +
