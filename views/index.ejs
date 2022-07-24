@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Agro-Care</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+              <%if (status == 'loggedIn'){%>
+                <li class="nav-item"><a class="nav-link" href="/animal">Animals Diseases & Symptoms</a></li>
+                <li class="nav-item"><a class="nav-link" href="/plant">Plants Diseases & Symptoms</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profile">Farmer Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+              <%}else{%>
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+              <li class="nav-item"><a class="nav-link" href="/login">Sign In</a></li>
+              <%}%>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="w-100" style="height:100vh">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/hardworker.jpg" class="d-block w-100" style="height: 100vh;" alt="turkey image">
+                    <div class="carousel-caption d-md-block">
+                        <h5>RURAL FARMER'S CONTRIBUTION</h5>
+                      <p>Rural farmers account for the greater part of the population of any developing country such as Nigeria</p>
+                    </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../images/happyman.jpg" class="d-block w-100" style="height: 100vh;" alt="cow image">
+                <div class="carousel-caption d-md-block">
+                  <h5>NEED FOR GOVERNMENT INTERVENTION</h5>
+                  <p>Governments of developing countries have a major responsibility of ensuring that there is adequate rural development in their various communities.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../images/nosemask.jpg" class="d-block w-100" style="height: 100vh;" alt="fowl image">
+                <div class="carousel-caption d-md-block">
+                  <h5>ADVERSE EFFECT OF LACK OF KNOWLEDGE AND INFORMATION</h5>
+                  <p>SWhen the rural farmers lack access to knowledge and information that would help them achieve maximum agricultural yield, they are not only grope in the dark but are driven to the urban centres in search of formal employment</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../images/goat2.jpg" class="d-block w-100" style="height: 100vh;" alt="goat image">
+                <div class="carousel-caption d-md-block">
+                  <h5>NEED FOR INFORMATION CENTRES</h5>
+                  <p>Farmers would benefit from global information, if information centres, are cited in rural areas complete with all information and communication gadgets.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../images/turkey.jpg" class="d-block w-100" style="height: 100vh;" alt="goat image">
+                <div class="carousel-caption d-md-block">
+                  <h5>NEED FOR INFORMATION CENTRES</h5>
+                  <p>Farmers would benefit from global information, if information centres, are cited in rural areas complete with all information and communication gadgets.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </div>
+</body>
+</html>
