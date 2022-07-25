@@ -14,7 +14,7 @@
 <body style="background: url(/images/happywoman.jpg); width:100vw; height:100vh; background-size:cover; background-repeat: no-repeat; background-attachment: fixed;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Agro-Care</a>
+          <a class="navbar-brand" href="/admin">Agro-Care</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,6 +28,7 @@
                 <li class="nav-item"><a class="nav-link" href="/admin/addplant">Add Plant Disease & Symptoms</a></li>
                 <li class="nav-item"><a class="nav-link" href="/admin/addanimal">Add Animal Disease & Symptoms</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <%=result%>
               <%}else{%>
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
@@ -39,7 +40,7 @@
         </div>
       </nav>
 
-   
+<!--    
    <script>
 
 
@@ -302,7 +303,14 @@
                     )           
     }
 
-              </script>
+              </script> -->
+<!-- 
+              <%if (status == 'adminLoggedIn'){%>
+              <% results.map(plant => { %>
+                <p><%= show %></p> -->
+              <!-- <% }) }%> -->
 
+
+              
 </body>
 </html>
