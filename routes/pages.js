@@ -31,6 +31,7 @@ router.get('/animal', loggedIn, (req, res) => {
     res.render('index')
 })
 
+
 router.get('/register', (req, res) => {
     res.sendFile('register.html', {root: './public'})
 })
@@ -44,6 +45,5 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/logout', logout)
-
 
 module.exports = router

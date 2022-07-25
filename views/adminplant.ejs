@@ -21,10 +21,12 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
 
-              <%if (status == 'loggedIn'){%>
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/animal">Animals Diseases & Symptoms</a></li>
-                <li class="nav-item"><a class="nav-link" href="/plant">Plants Disease & Symptoms</a></li>
+              <%if (status == 'adminLoggedIn'){%>
+                <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/adminanimal">Animals Diseases & Symptoms</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/adminplant">Plants Disease & Symptoms</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/addplant">Add Plant Disease & Symptoms</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/addanimal">Add Animal Disease & Symptoms</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
               <%}else{%>
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>

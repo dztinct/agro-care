@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const db = require('./routes/db-config')
-const cookie = require('cookie-parser');
+const cookie = require('cookie-parser')
 const PORT = process.env.PORT || 4000
 app.use('/js', express.static(__dirname + '/public/js'))
 app.use('/css', express.static(__dirname + '/public/css'))
@@ -14,9 +14,11 @@ db.connect((err) => {
     console.log('Connected to database')
 })
 
+const pagesAdmin = require('./routes/pagesAdmin')
 const pages = require('./routes/pages')
 
 app.use('/', pages);
+app.use('/admin', pagesAdmin);
 
 app.use('/api', require('./controllers/auth'))
 

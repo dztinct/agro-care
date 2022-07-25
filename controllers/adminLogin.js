@@ -2,13 +2,13 @@ const jwt = require('jsonwebtoken')
 const db = require('../routes/db-config');
 const bcrypt = require('bcryptjs')
 
-const login = async (req, res) => {
+const adminLogin = async (req, res) => {
     const { email, password } = req.body
     if (!email || !password) return res.json({ status: 'error', error: 'Please enter complete credentials'})
     else{
         db.query('SELECT * FROM users WHERE email = ?', [email], async (Err, result) => {
             if(Err) throw Err
-            if(!result[0] || !await bcrypt.compare(password, result[0].password)) return res.json({
+            if(!result[0] || !await bcrypt.compare(password, result[0].password) || result[0].isAdmin != 1) return res.json({
                 status: 'error',
                 error: 'Incorrect email or password'
             })
@@ -21,10 +21,10 @@ const login = async (req, res) => {
                     httponly: true
                 }
                 res.cookie('userRegistered', token, cookieOptions)
-                return res.json({ status: "success", success: 'User has been logged in, click Home to sign in now'})
+                return res.json({ status: "success", success: 'Admin has been logged in, click Home to sign in now'})
             }
         })
     }
 }
 
-module.exports = login
+module.exports = adminLogin
