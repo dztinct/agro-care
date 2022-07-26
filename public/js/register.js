@@ -17,10 +17,20 @@ form.addEventListener('submit', () => {
                 success.style.display = 'none'
                 error.style.display = 'block'
                 error.innerText = data.error
+
+                firstname.value =''
+                lastname.value =''
+                email.value =''
+                password.value=''
             }else{
                 error.style.display = 'none'
                 success.style.display = 'block'
                 success.innerText = data.success
+                
+                firstname.value =''
+                lastname.value =''
+                email.value =''
+                password.value=''
             }
         })
 })

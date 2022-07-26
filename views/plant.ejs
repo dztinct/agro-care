@@ -37,270 +37,29 @@
         </div>
       </nav>
 
-   
-   <script>
+      <% if(result.length){
+ 
+        for(var i = 0; i< result.length; i++) {%>  
 
-
-
-        let symptoms = [
-            //BLACK SPOT
-            {
-              name: 'Black, round spots on the upper sides of leaves',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Black spot",
-                        description: 'Black spot is one of the most common diseases found on roses, but it can also occur on other ornamental and garden plants. Fungal leaf spot disease can be found both indoors on houseplants, and outdoors in the landscape. This fungal disease causes black, round spots that form on the upper sides of leaves. Lower leaves are usually infected first',
-                        causes: [
-                            "- Extended periods of wet weather or when leaves are wet for 6 hours or more",
-                            "<br>- Warm, wet conditions"
-                        ],
-                        prevention: [
-                            "- Plant in well-draining soil",
-                            "<br>- Keep your plants healthy by providing regular feedings of organic fertilizer. This will help prevent fungal disease in plants.",
-                            "<br>- Remove dead leaves and infected canes from around the plants and disguard in the trash. Do not add to the compost pile.",
-                            "<br>- Disinfect your pruners with a household disinfectant after every use",
-                            "<br>- Because water (not wind) spreads the fungal spores, avoid applying water on the leaves.",
-                            "<br>- When you water, apply water directly to the roots",
-                            "<br>- Use a soaker hose to water plants prone to the disease."
-                        ],
-                        treatment: [
-                            "- Spray with a fungicide containing myclobutanil",
-                            "<br>- Begin spraying each fortnight from early spring, just as the new foliage emerge",
-                            "<br>- Use of sulphur, neem oil and copper",
-                            "<br>- Ethanol or isopropyl alcohol can be used straight out of the bottle."
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/blackspot-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-            {
-              name: 'Leaves to turn yellow and fall off the plant',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Black spot",
-                        description: 'Black spot is one of the most common diseases found on roses, but it can also occur on other ornamental and garden plants. Fungal leaf spot disease can be found both indoors on houseplants, and outdoors in the landscape. This fungal disease causes black, round spots that form on the upper sides of leaves. Lower leaves are usually infected first',
-                        causes: [
-                            "- Extended periods of wet weather or when leaves are wet for 6 hours or more",
-                            "<br>- Warm, wet conditions"
-                        ],
-                        prevention: [
-                            "- Plant in well-draining soil",
-                            "<br>- Keep your plants healthy by providing regular feedings of organic fertilizer. This will help prevent fungal disease in plants.",
-                            "<br>- Remove dead leaves and infected canes from around the plants and disguard in the trash. Do not add to the compost pile.",
-                            "<br>- Disinfect your pruners with a household disinfectant after every use",
-                            "<br>- Because water (not wind) spreads the fungal spores, avoid applying water on the leaves.",
-                            "<br>- When you water, apply water directly to the roots",
-                            "<br>- Use a soaker hose to water plants prone to the disease."
-                        ],
-                        treatment: [
-                            "- Spray with a fungicide containing myclobutanil",
-                            "<br>- Begin spraying each fortnight from early spring, just as the new foliage emerge",
-                            "<br>- Use of sulphur, neem oil and copper",
-                            "<br>- Ethanol or isopropyl alcohol can be used straight out of the bottle.  "
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/blackspot-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-        
-        
-        
-            //POWDERY MILDEW
-            {
-              name: 'white powdery substance most visible on upper leaf surfaces anywhere on the plant',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Powdery Mildew",
-                        description: 'Powdery mildew is a fungal disease that affects many of our landscape plants, flowers, vegetables and fruits. Powdery mildew is an easy one to identify',
-                        causes: [
-                            "-Low soil moisture conditions combined with high humidity levels on the upper parts of the plant surface",
-                            "<br>- Plants kept in shady areas more than those in direct sun."
-                        ],
-                        prevention: [
-                            "-Inspect plants that you buy from a greenhouse before purchasing for mildew (and insects).",
-                            "<br>- all infected debris should be removed",
-                            "<br>- Trim and remove infected plant parts.",
-                            "<br>- Do not till the debris into the soil or use in the compost pile.",
-                            "<br>- Space plants far enough apart to increase air circulation and reduce humidity."
-                        ],
-                        treatment: [
-                            "- Wiping off the leaves is not an effective powdery mildew treatment as it will return within days of cleaning.",
-                            "<br>- Baking soda has been proved by many gardeners to be effective in treating powdery mildew",
-                            "<br>- Mix 1 teaspoon baking soda in 1 quart of water. Spray plants thoroughly, as the solution will only kill fungus that it comes into contact with",
-                            "<br>- Milk spray is another effective home remedy."
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/powdery-mildew-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-        
-            
-            //DOWNY MILDEW
-            {
-              name: 'Grayish fuzzy looking spores on the lower surfaces of leaves.',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Downy Mildew",
-                        description: 'Because downy mildews differ from powdery mildews, it is important to understand the differences between the two.  Powdery mildews are true fungal pathogens that display a white powdery substance on the upper leaves.  Downy mildews, on the other hand, are more related to algae and produce grayish fuzzy looking spores on the lower surfaces of leaves.  To identify downy mildew, look for pale green or yellow spots on the upper surfaces of older leaves.  On the lower surfaces, the fungus will display a white to grayish, cotton-like downy substance',
-                        causes: [
-                            "- cool, moist weather",
-                            "<br>- Spore production is favored by temperatures below 65°F and with a high relative humidity."
-                        ],
-                        prevention: [
-                            "- If there is no water on your leaves, the disease cannot spread.",
-                            "<br>- Clean around your plants to help prevent the disease.",
-                        ],
-                        treatment: [
-                            "- Keep water off leaves as much as possible.",
-                            "<br>- Some of the fungicides used to control powdery mildew will not control downy mildew "
-        
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/downy-mildew-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-            {
-              name: 'Pale green or yellow spots on the upper surfaces of older leaves.',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Downy Mildew",
-                        description: 'Because downy mildews differ from powdery mildews, it is important to understand the differences between the two.  Powdery mildews are true fungal pathogens that display a white powdery substance on the upper leaves.  Downy mildews, on the other hand, are more related to algae and produce grayish fuzzy looking spores on the lower surfaces of leaves.  To identify downy mildew, look for pale green or yellow spots on the upper surfaces of older leaves.  On the lower surfaces, the fungus will display a white to grayish, cotton-like downy substance',
-                        causes: [
-                            "- cool, moist weather ",
-                            "<br>- Spore production is favored by temperatures below 65°F and with a high relative humidity."
-                        ],
-                        prevention: [
-                            "- If there is no water on your leaves, the disease cannot spread.",
-                            "<br>- Clean around your plants to help prevent the disease.",
-                        ],
-                        treatment: [
-                            "- Keep water off leaves as much as possible.",
-                            "<br>- Some of the fungicides used to control powdery mildew will not control downy mildew"
-        
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/downy-mildew-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-            {
-              name: 'White to grayish, cotton-like downy substance on the lower surface of leaves.',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Downy Mildew",
-                        description: 'Because downy mildews differ from powdery mildews, it is important to understand the differences between the two.  Powdery mildews are true fungal pathogens that display a white powdery substance on the upper leaves.  Downy mildews, on the other hand, are more related to algae and produce grayish fuzzy looking spores on the lower surfaces of leaves.  To identify downy mildew, look for pale green or yellow spots on the upper surfaces of older leaves.  On the lower surfaces, the fungus will display a white to grayish, cotton-like downy substance',
-                        causes: [
-                            "- cool, moist weather ",
-                            "<br>- Spore production is favored by temperatures below 65°F and with a high relative humidity."
-                        ],
-                        prevention: [
-                            "- If there is no water on your leaves, the disease cannot spread.",
-                            "<br>- Clean around your plants to help prevent the disease.",
-                        ],
-                        treatment: [
-                            "- Keep water off leaves as much as possible.",
-                            "<br>- Some of the fungicides used to control powdery mildew will not control downy mildew"
-        
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/downy-mildew-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-        
-        
-        
-            //BLIGHT
-            {
-              name: 'Spores in leaves',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Blight",
-                        description: 'Plant blight is a common disease. Remember the potato famine in the 1840’s?  As a result of the blight, one million people died.  But other than potatoes, blight also affects other plants, particularly tomatoes .spores can cover large areas and rapidly spread the infection',
-                        causes: [
-                            "- Blight is a fungal disease that spreads through spores that are windborne ",
-                            "<br>- Spore production is favored by temperatures below 65°F and with a high relative humidity. ",
-                            "<br>- Blight can only spread under warm humid conditions"
-                        ],
-                        prevention: [
-                            "- If growing potatoes, grow in early part of the season to harvest before blightoccurs",
-                        ],
-                        treatment: [
-                            "- No cure exists"
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/blight-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-        
-        
-        
-            //CANKER
-            {
-              name: 'Sunken, swollen, cracked or dead areas found on stems, limbs or trunk',
-              possibleDiseases: {
-                  diseases: [
-                      {
-                        name: "Canker",
-                        description: 'Canker is often identified by an open wound that has been infected by fungal or bacterial pathogens.  Some cankers are not serious while others can be lethal.  Canker occurs primarily on woody landscape plants. Cankers can girdle branches, and kill foliage. Cankers are most common on stressed plants that have been weakened by cold, insects, drought conditions, nutritional imbalances or root rot',
-                        causes: [
-                            "- Rodents can spread the pathogens"
-                        ],
-                        prevention: [
-                            "- Remove diseased parts in dry weather.",
-                            "<br>- Grow resistant varieties whenever possible.",
-                            "<br>- Avoid overwatering and overcrowding.",
-                            "<br>- Avoid mechanical wounds such as damage from lawn mowers.",
-                            "<br>- Wrap young, newly planted trees to prevent sunscald. Sunscald creates dead patches that form on trunk and limbs of young trees if the trunks have been shaded, then transplanted to sunny areas.",
-                            "<br>- Keep plants healthy by planting in healthy soils and maintaining nutritional requirements."
-                        ],
-                        treatment: [
-                            "- No cure exists"
-                        ],
-                        image : 'https://earthsally.com/wp-content/uploads/2021/03/canker-plant-disease-1024x512.jpg'
-                    }
-                ],
-        
-              }
-            },
-          ]
-          for(let i = 0; i < symptoms.length; i++){
-            document.write(
-                '<div class="card mb-5" style="width: 100vw; heigt: 100vh; font-family: "Roboto", sans-serif;">' +
-                    '<img src="'+ symptoms[i].possibleDiseases.diseases[0].image+'"class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:60%; margin-left:auto; margin-right:auto; height:50vh;">' +
-                    '<div class="card-body">' +
-                      '<h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: '+symptoms[i].possibleDiseases.diseases[0].name+'</h4>' +
-                      '<h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> '+symptoms[i].name+'</h6>' +
-                      '<h6 class="card-text bg-success text-light p-4"> DESCRIPTION <br><br>'+symptoms[i].possibleDiseases.diseases[0].description+'</h6>' +
-                      '<p class="card-text bg-success text-light p-4"> CAUSES <br><br>'+symptoms[i].possibleDiseases.diseases[0].causes+'</p>' +
-                      '<p class="card-text bg-success text-light p-4"> PREVENTIONS <br><br>'+symptoms[i].possibleDiseases.diseases[0].prevention+'</p>' +
-                      '<p class="card-text bg-success text-light p-4"> TREATMENTS <br><br>'+symptoms[i].possibleDiseases.diseases[0].treatment+ '<br>'+'</p>' +
-                      '<br>'+
-                    '</div>'+
-                '</div>'  
-                    )           
-    }
-
-              </script>
-
+          <div class="card mb-5" style="width: 100vw; font-family: Roboto", sans-serif;">
+            <img src="<%=result[i].image%>"%>class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:60%; margin-left:auto; margin-right:auto; height:50vh;">
+            <div class="card-body">
+              <h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: <%= result[i].disease%></h4>
+              <h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> <%= result[i].symptom%></h6>
+              <h6 class="card-text bg-success text-light p-4"> DESCRIPTION <br><br><%= result[i].description%></h6>
+              <p class="card-text bg-success text-light p-4"> CAUSES <br><br><%= result[i].causes%></p>
+              <p class="card-text bg-success text-light p-4"> PREVENTIONS <br><br><%= result[i].prevention%></p>
+              <p class="card-text bg-success text-light p-4"> TREATMENTS <br><br><%= result[i].treatment%><br></p>
+              <br>
+            </div>
+        </div>
+        <% }
+                 
+         }else{ %>
+             <tr>
+                <td colspan="3">No user</td>
+             </tr>
+          <% } %> 
+              
 </body>
 </html>

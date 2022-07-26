@@ -2,7 +2,7 @@ const express = require('express')
 const loggedIn = require('../controllers/loggedIn')
 const logout = require('../controllers/logout')
 const router = express.Router()
-
+const db = require('../routes/db-config')
 
 router.get('/', loggedIn, (req, res) => {
     if(req.user){
@@ -10,27 +10,40 @@ router.get('/', loggedIn, (req, res) => {
     }else{
         res.render('index', { status: 'no', user: 'nothing' })
     }
-    res.render('index')
+    res.render('index', { status: 'no', user: 'nothing' })
 })
 
-router.get('/plant', loggedIn, (req, res) => {
-    if(req.user){
-        res.render('plant', { status: 'loggedIn', user: req.user })
-    }else{
-        res.render('index', { status: 'no', user: 'nothing' })
-    }
-    res.render('index')
+    router.get('/animal', loggedIn, (req, res) => {
+        if(req.user){
+        let sql = 'SELECT * FROM animals'
+        db.query(sql, (err, rows) => {
+            if(err) throw err
+            console.log(rows)
+            res.render('animal', { 
+                status: 'loggedIn', 
+                result: rows 
+            })
+    })
+        }else{
+            res.render('index', { status: 'no', animals: [] })
+        }
 })
 
-router.get('/animal', loggedIn, (req, res) => {
-    if(req.user){
-        res.render('animal', { status: 'loggedIn', user: req.user })
-    }else{
-        res.render('index', { status: 'no', user: 'nothing' })
-    }
-    res.render('index')
+    router.get('/plant', loggedIn, (req, res) => {
+        if(req.user){
+        let sql = 'SELECT * FROM plant'
+        db.query(sql, (err, rows) => {
+            if(err) throw err
+            console.log(rows)
+            res.render('animal', { 
+                status: 'loggedIn', 
+                result: rows 
+            })
+    })
+        }else{
+            res.render('index', { status: 'no', animals: [] })
+        }
 })
-
 
 router.get('/register', (req, res) => {
     res.sendFile('register.html', {root: './public'})

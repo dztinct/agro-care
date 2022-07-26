@@ -4,7 +4,6 @@ const logout = require('../controllers/logout')
 const router = express.Router()
 const db = require('../routes/db-config')
 
-
 //ADMIN HOME
 
 router.get('/', adminLoggedIn, (req, res) => {
@@ -18,24 +17,34 @@ router.get('/', adminLoggedIn, (req, res) => {
 
 router.get('/logout', logout)
 
-//ADMIN PLANT
-// router.get('/adminplant', adminLoggedIn, (req, res) => {
-//     if(req.user){
-//         res.render('adminplant', { status: 'adminLoggedIn', user: req.user })
-//     }else{
-//         res.render('admin', { status: 'no', user: 'nothing' })
-//     }
-//     res.render('index')
-// })
-
-//ADMIN ANIMAL
 router.get('/adminanimal', adminLoggedIn, (req, res) => {
     if(req.user){
-        res.render('adminanimal', { status: 'adminLoggedIn', user: req.user })
+    let sql = 'SELECT * FROM animals'
+    db.query(sql, (err, rows) => {
+        if(err) throw err
+        res.render('adminanimal', { 
+            status: 'adminLoggedIn', 
+            result: rows 
+        })
+})
     }else{
-        res.render('admin', { status: 'no', user: 'nothing' })
+        res.render('admin', { status: 'no', animals: [] })
     }
-    res.render('index', { status: 'no', user: 'nothing' })
+})
+
+router.get('/adminplant', adminLoggedIn, (req, res) => {
+    if(req.user){
+    let sql = 'SELECT * FROM plant'
+    db.query(sql, (err, rows) => {
+        if(err) throw err
+        res.render('adminplant', { 
+            status: 'adminLoggedIn', 
+            result: rows 
+        })
+})
+    }else{
+        res.render('admin', { status: 'no', animals: [] })
+    }
 })
 
 //ADMIN ADD PLANT
@@ -49,6 +58,12 @@ router.get('/addplant', adminLoggedIn, (req, res) => {
 })
 
 //ADMIN ADD ANIMAL
+
+// router.get('/register', (req, res) => {
+//     res.sendFile('register.html', {root: './public'})
+// })
+
+//ADD ANIMAL
 router.get('/addanimal', adminLoggedIn, (req, res) => {
     if(req.user){
         res.render('addanimal', { status: 'adminLoggedIn', user: req.user })
@@ -58,41 +73,76 @@ router.get('/addanimal', adminLoggedIn, (req, res) => {
     res.render('index', { status: 'no', user: 'nothing' })
 })
 
-// CRUD OPERATION
-// SELECT PLANT
-// ADMIN PLANT
-router.get('/adminplant', adminLoggedIn, (req, res) => {
+//ANIMAL EDIT PAGE
+router.get('/animal/edit/:animalId', adminLoggedIn, (req, res) => {
+    const animalId = req.params.animalId;
     if(req.user){
-        let sql = 'SELECT * FROM users'
-    let query = db.query(sql, (err, results) => {
+    let sql = `SELECT * FROM animals where id = ${animalId}`
+    db.query(sql, (err, rows) => {
         if(err) throw err
-        res.render('adminplant', { status: 'adminLoggedIn', user: req.user })
-        console.log(user)
-    })
+        res.render('updateanimal', { 
+            status: 'adminLoggedIn', 
+            result: rows[0]
+        })
+})
     }else{
-        res.render('index', { status: 'no', user: 'nothing' })
+        res.render('admin', { status: 'no', animals: [] })
     }
-    res.render('plantAdmin', { status: 'no', user: 'nothing' })
 })
 
-// SELECT PLANT
-// router.get('/adminplant', (req, res) => {
-//     let sql = 'SELECT * FROM users'
-//     let query = db.query(sql, (err, results) => {
-//         if(err) throw err
-//         if(req.user){
-//         res.render('plantadmin', { status: 'adminLoggedIn', user: req.user, results:results})
-//         }else{
-//         res.render('admin', { status: 'no', user: 'nothing' })
-//         }
-//         res.render('index', { status: 'no', user: 'nothing'})
-//     })
+//PLANT EDIT PAGE
+router.get('/plant/edit/:plantId', adminLoggedIn, (req, res) => {
+    const plantId = req.params.plantId;
+    if(req.user){
+    let sql = `SELECT * FROM plant where id = ${plantId}`
+    db.query(sql, (err, rows) => {
+        if(err) throw err
+        res.render('updateplant', { 
+            status: 'adminLoggedIn', 
+            result: rows[0]
+        })
+})
+    }else{
+        res.render('admin', { status: 'no', animals: [] })
+    }
+})
+
+// ANIMAL DELETE PAGE
+router.get('/animal/delete/:animalId', adminLoggedIn, (req, res) => {
+    const animalId = req.params.animalId;
+    if(req.user){
+    let sql = `DELETE FROM animals where id = ${animalId}`
+    db.query(sql, (err, rows) => {
+        if(err) throw err
+        res.redirect('/admin/adminanimal')
+        
+})
+    }
+})
+
+// PLANT DELETE PAGE
+router.get('/plant/delete/:plantId', adminLoggedIn, (req, res) => {
+    const plantId = req.params.plantId;
+    if(req.user){
+    let sql = `DELETE FROM plant where id = ${plantId}`
+    db.query(sql, (err, rows) => {
+        if(err) throw err
+        res.redirect('/admin/adminplant')
+        
+})
+    }
+})
+
+//ANIMAL UPDATE
+// router.put('/updateeanimal/:animalId', adminLoggedIn, (req, res) => {
+//             let sql = "UPDATE animals SET symptom = '"+req.body.symptom+"', disease = '"+req.body.disease+"', description = '"+req.body.description+"', causes = '"+req.body.causes+"', prevention = '"+req.body.prevention+"', treatment = '"+req.body.treatment+"', image = '"+req.body.image+"', WHERE id = "+req.params.id
+//             let query = db.query(sql, (err, result) => {
+//                 if(err) throw err
+//                 res.redirect('adminanimal', { status: 'adminLoggedIn'})
+//             })
 // })
 
 
-router.get('plant', (req, res) => {
-    //Select users
 
-})
 
 module.exports = router

@@ -12,7 +12,7 @@ app.set('views', './views')
 app.use(cookie())
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 db.connect((err) => {
     if (err) throw err
     console.log('Connected to database')
@@ -29,9 +29,8 @@ app.use('/api', require('./controllers/auth'))
 const methodOverride = require('method-override')
 
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({extended : true}))
+app.use(express.urlencoded({extended : false}))
 
 app.use(express.static(path.join(__dirname, 'assets')))
-
 
 app.listen(PORT, () => {console.log(`App running on port ${PORT}`)})
