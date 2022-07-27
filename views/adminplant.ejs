@@ -10,9 +10,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
+    <script src="bower_components/aos/dist/aos.js"></script> 
+    <script>
+        AOS.init();
+      </script>
+
+    <style>
+        /* DESKTOP DEVICES */
+        @media only screen and (min-width : 992px){
+          .img{
+            width: 60vw;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .manage{
+            position: absolute;
+            top: 3%
+          }
+        }
+  
+          /* MOBILE DEVICES */
+          @media only screen and (max-width : 600px){
+              .img{
+                width: 100%;
+              }
+              .manage{
+                display:flex;
+                padding-top: 3%;
+                justify-content: space-evenly;
+              }
+              .edit{
+                width: 45%;
+              }
+          }
+        </style>
 </head>
-<body style="background: url(/images/happywoman.jpg); width:100vw; height:100vh; background-size:cover; background-repeat: no-repeat; background-attachment: fixed;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+<body style="background: url(/images/happywoman.jpg); width:100vw; height:100vh; background-size:cover; background-repeat: no-repeat; background-attachment: fixed; margin-top: 3%;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" style="display:block;">
         <div class="container-fluid">
           <a class="navbar-brand" href="/admin">Agro-Care</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,23 +77,26 @@
       <% if(result.length){
  
         for(var i = 0; i< result.length; i++) {%>  
+            <div data-aos="fade-left">
 
-          <div class="card mb-5" style="width: 100vw; font-family: Roboto", sans-serif;">
-
-            <a class="btn btn-danger btn-lg edit" href="/admin/plant/delete/<%=result[i].id%>" style="position:absolute; top: 5%; left: 1%;">Delete</a>                                            
-              <a class="btn btn-primary btn-lg edit" href="/admin/plant/edit/<%=result[i].id%>" style="position:absolute; top: 5%; left: 10%;">Update</a>                                            
-
-            <img src="<%=result[i].image%>"%>class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:60%; margin-left:auto; margin-right:auto; height:50vh;">
-            <div class="card-body">
-              <h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: <%= result[i].disease%></h4>
-              <h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> <%= result[i].symptom%></h6>
-              <h6 class="card-text bg-success text-light p-4"> DESCRIPTION <br><br><%= result[i].description%></h6>
-              <p class="card-text bg-success text-light p-4"> CAUSES <br><br><%= result[i].causes%></p>
-              <p class="card-text bg-success text-light p-4"> PREVENTIONS <br><br><%= result[i].prevention%></p>
-              <p class="card-text bg-success text-light p-4"> TREATMENTS <br><br><%= result[i].treatment%><br></p>
-              <br>
+                <div class="card mb-5" style="width: 100vw; font-family: Roboto", sans-serif; display: block">
+                    
+                    <img src="<%=result[i].image%>"%>class="card-img-top p-2 pt-5 img" alt="Plant symptoms disease" style="height:50vh;">
+                    <div class="manage">
+                        <a class="btn btn-danger btn-lg edit delete" href="/admin/plant/delete/<%=result[i].id%>">Delete</a>                                            
+                        <a class="btn btn-warning btn-lg edit update" href="/admin/plant/edit/<%=result[i].id%>">Update</a>                                            
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: <%= result[i].disease%></h4>
+                        <h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> <%= result[i].symptom%></h6>
+                        <h6 class="card-text bg-success text-light p-4"> DESCRIPTION <br><br><%= result[i].description%></h6>
+                        <p class="card-text bg-success text-light p-4"> CAUSES <br><br><%= result[i].causes%></p>
+                        <p class="card-text bg-success text-light p-4"> PREVENTIONS <br><br><%= result[i].prevention%></p>
+                        <p class="card-text bg-success text-light p-4"> TREATMENTS <br><br><%= result[i].treatment%><br></p>
+                        <br>
+                    </div>
+                </div>
             </div>
-        </div>
         <% }
                  
          }else{ %>

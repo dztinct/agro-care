@@ -10,8 +10,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body style="background: url(/images/happywoman.jpg); width:100vw; height:100vh; background-size:cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <style>
+      /* DESKTOP DEVICES */
+      @media only screen and (min-width : 992px){
+        .img{
+          width: 60vw;
+          margin-left: auto;
+          margin-right: auto;
+
+        }
+      }
+
+        /* MOBILE DEVICES */
+        @media only screen and (max-width : 600px){
+            .img{
+              width: 100%;
+            }
+        }
+      </style>
+    </head>
+    <body style="background: url(/images/happywoman.jpg); width:100vw; height:100vh; background-size:cover; background-repeat: no-repeat; background-attachment: fixed; margin-top: 3%;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Agro-Care</a>
@@ -42,7 +60,7 @@
         for(var i = 0; i< result.length; i++) {%>  
 
           <div class="card mb-5" style="width: 100vw; font-family: Roboto", sans-serif;">
-            <img src="<%=result[i].image%>"%>class="card-img-top p-2 mt-5" alt="Plant symptoms disease" style="width:60%; margin-left:auto; margin-right:auto; height:50vh;">
+            <img src="<%=result[i].image%>"%> class="card-img-top p-2 mt-5 img" id='img' alt="Plant symptoms disease" style="height:50vh;">
             <div class="card-body">
               <h4 class="card-title bg-warning text-light p-2 text-center"> DISEASE NAME: <%= result[i].disease%></h4>
               <h6 class="card-title bg-success text-light text-center p-4"> <span style="background-color:light-green">SYMPTOMS:</span> <%= result[i].symptom%></h6>

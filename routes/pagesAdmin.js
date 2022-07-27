@@ -133,16 +133,4 @@ router.get('/plant/delete/:plantId', adminLoggedIn, (req, res) => {
     }
 })
 
-//ANIMAL UPDATE
-// router.put('/updateeanimal/:animalId', adminLoggedIn, (req, res) => {
-//             let sql = "UPDATE animals SET symptom = '"+req.body.symptom+"', disease = '"+req.body.disease+"', description = '"+req.body.description+"', causes = '"+req.body.causes+"', prevention = '"+req.body.prevention+"', treatment = '"+req.body.treatment+"', image = '"+req.body.image+"', WHERE id = "+req.params.id
-//             let query = db.query(sql, (err, result) => {
-//                 if(err) throw err
-//                 res.redirect('adminanimal', { status: 'adminLoggedIn'})
-//             })
-// })
-
-
-
-
 module.exports = router

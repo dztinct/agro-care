@@ -35,7 +35,7 @@ router.get('/', loggedIn, (req, res) => {
         db.query(sql, (err, rows) => {
             if(err) throw err
             console.log(rows)
-            res.render('animal', { 
+            res.render('plant', { 
                 status: 'loggedIn', 
                 result: rows 
             })
