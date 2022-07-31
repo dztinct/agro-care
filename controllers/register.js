@@ -12,7 +12,7 @@ const register = async (req, res) => {
                 const password = await bcrypt.hash(Npassword, 8);
                 db.query('INSERT INTO users SET ?', {firstname: firstname, lastname: lastname, email: email, password : password}, (error, results) => {
                     if(error) throw error;
-                    return res.json({ status: 'success', success: 'User has been registered'})
+                    return res.json({ status: 'success', success: 'User has been registered!, sign in to proceed'})
                 })
             }
         })

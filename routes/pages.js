@@ -13,6 +13,19 @@ router.get('/', loggedIn, (req, res) => {
     res.render('index', { status: 'no', user: 'nothing' })
 })
 
+// router.get('/admin', loggedIn, (req, res) => {
+//     if(req.user){
+//             res.sendFile('adminLogin.html', {root: './public'})
+//         }else{
+//             res.sendFile('adminLogin.html', {root: './public'})
+//         }
+//         res.sendFile('adminLogin.html', {root: './public'})
+// })
+
+router.get('/manifest', (req, res) => {
+    res.sendFile('../manifest.json', {root: './public'})
+})
+
     router.get('/animal', loggedIn, (req, res) => {
         if(req.user){
         let sql = 'SELECT * FROM animals'

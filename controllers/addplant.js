@@ -17,4 +17,4 @@ const addplant = async (req, res) => {
     }
 }
 
-module.exports = addplant 
+module.exports = addplant
